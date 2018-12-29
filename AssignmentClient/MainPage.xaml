@@ -6,9 +6,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
-    </Grid>
+    <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" Text="Hello World!" FontSize="37" FontWeight="Bold"/>
+            <TextBlock x:Name="Response_Login" HorizontalAlignment="Center" Foreground="Red"/>
+            <RelativePanel HorizontalAlignment="Center">
+                <TextBox x:Name="Username" Header="Username:" Width="400"/>
+                <TextBlock x:Name="Username_Message" RelativePanel.Below="Username" Foreground="Red"/>
+            </RelativePanel>
+            <RelativePanel HorizontalAlignment="Center">
+                <PasswordBox x:Name="Password" Header="Password:" Width="400"/>
+                <TextBlock x:Name="Password_Message" RelativePanel.Below="Password" Foreground="Red"/>
+            </RelativePanel>
+            <Button Content="LOGIN" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Click="Login_Button" Height="41" Width="124"/>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
