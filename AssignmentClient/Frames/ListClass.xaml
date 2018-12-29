@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="AssignmentClient.Report.ListClass"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AssignmentClient.Report"
+    xmlns:data="using:AssignmentClient.Entity"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <DataTemplate x:Key="BookListDataTemplate" x:DataType="data:Classes">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel Margin="20,20,10,0">
+                    <TextBlock Text="Class Name"/>
+                    <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left" FontSize="16" />
+                </StackPanel>
+                <StackPanel Margin="20,20,0,0">
+                    <StackPanel Orientation="Horizontal"  Margin="0, 20, 0, 0">
+                        <TextBlock Text="Id: "  HorizontalAlignment="Left" FontSize="16"  Margin="0, 0, 10, 0"/>
+                        <TextBlock Text="{x:Bind Id}" HorizontalAlignment="Left" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="0, 20, 0, 0">
+                        <TextBlock Text="Start Time: " />
+                        <TextBlock Text="{x:Bind StartTime}" HorizontalAlignment="Left" FontSize="15" Margin="0, 0, 10, 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="0,20, 0, 0">
+                        <TextBlock Text="End Time: "/>
+                        <TextBlock Text="{x:Bind EndTime}" HorizontalAlignment="Left" FontSize="15" Margin="0, 0, 10, 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="0, 20, 0, 0">
+                        <TextBlock Text="Intend Time: "/>
+                        <TextBlock Text="{x:Bind IntendTime}" HorizontalAlignment="Left" FontSize="15" Margin="0, 0, 10, 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0">
+                        <Button Margin="0, 0, 10, 0">Subjects</Button>
+                        <Button>Students</Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,20,20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" 
+                   Name="ResultTextBlock" 
+                   FontSize="24" 
+                   Foreground="Red" 
+                   FontWeight="Bold" 
+                   Margin="20,20,0,0" />
+        <ListView ItemsSource="{x:Bind Classes}" 
+                  ItemTemplate="{StaticResource BookListDataTemplate}">
+        </ListView>
+    </Grid>
+</Page>
