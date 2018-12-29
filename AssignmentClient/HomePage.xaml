@@ -25,24 +25,37 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
+        
         <NavigationView x:Name="NavView"
                     ItemInvoked="NavView_ItemInvoked"
                     IsSettingsVisible="False"
                     Loaded="NavView_Loaded"
                     BackRequested="NavView_BackRequested" IsPaneOpen="True">
 
-
+            
+            <NavigationView.PaneFooter>
+                <NavigationViewItem Icon="Home" Content="Logout" Tag="logout" x:Name="Logout" Foreground="Red">
+                </NavigationViewItem>
+            </NavigationView.PaneFooter>
             <NavigationView.MenuItems>
-                <NavigationViewItemSeparator/>
-                <NavigationViewItem Icon="list" Content="Report" Tag="report" x:Name="Report" ToolTipService.ToolTip="Add Song"/>
-                <NavigationViewItem Icon="tag" Content="Profile" Tag="profile" x:Name="Profile" ToolTipService.ToolTip="Register"/>
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="30" Source="/Assets/img_210318.png">
+                    </Image>
+                    <StackPanel>
+                        <TextBlock Margin="10, 0, 0, 0" Text="Full Name"/>
+                        <TextBlock Margin="10, 0, 0, 0" Text="D00544"/>
+                    </StackPanel>
+                    
+                </StackPanel>
+                <NavigationViewItemSeparator>
+                    
+                </NavigationViewItemSeparator>
+                <NavigationViewItem Icon="list" Content="Report" Tag="report" x:Name="Report" ToolTipService.ToolTip="Report"/>
+                <NavigationViewItem Icon="tag" Content="Profile" Tag="profile" x:Name="Profile" ToolTipService.ToolTip="Profile"/>
             </NavigationView.MenuItems>
-
             <NavigationView.AutoSuggestBox>
-                <AutoSuggestBox x:Name="ASB" QueryIcon="Find"/>
+           <AutoSuggestBox x:Name="ASB" QueryIcon="Find"/>
             </NavigationView.AutoSuggestBox>
-
             <NavigationView.HeaderTemplate>
                 <DataTemplate>
                     <Grid Margin="24,10,0,0">
@@ -53,7 +66,7 @@
                         <TextBlock Style="{StaticResource TitleTextBlockStyle}"
                            FontSize="28"
                            VerticalAlignment="Center"
-                           Text="Welcome To MusicBox" Foreground="White"/>
+                           />
                         <CommandBar Grid.Column="1"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
@@ -66,5 +79,7 @@
 
             <Frame x:Name="ContentFrame" Margin="20"/>
         </NavigationView>
+
+       
     </Grid>
 </Page>

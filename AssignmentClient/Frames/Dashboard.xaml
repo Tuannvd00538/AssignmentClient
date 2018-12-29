@@ -9,6 +9,55 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Margin="50" Text="This is Dashboard"></TextBlock>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="6*"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            
+            <Border  Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+            </Border>
+            <Border  Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
+            </Border>
+            <Border  Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
+            </Border>
+            <Border  Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+            </Border>
+            <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center"
+                Grid.Row="0">
+                <TextBlock FontSize="20" FontWeight="Bold">Class List</TextBlock>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 Grid.Row="0" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
+               FontSize="20" FontWeight="Bold">Notification</TextBlock>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+                <ListView x:Name="listView1" Margin="0, 10, 0, 0" Padding="20, 0, 0, 0">
+                    <x:String>T1707A</x:String>
+                    <x:String>T1708E</x:String>
+                    <x:String>T1708E</x:String>
+                    <x:String>T1708E</x:String>
+                    <x:String>T1708E</x:String>
+                </ListView>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+                <ListView x:Name="listView2" Margin="0, 10, 0, 0">
+                    <x:String>Đã có điểm môn ASP.NET Core MVC lớp T1708E</x:String>
+                    <x:String>Đã có điểm môn C# lớp T1707A</x:String>
+                    <x:String>Đã có điểm môn HTML/CSS/JS lớp T1708E</x:String>
+                    <x:String>Thông báo lịch đăng ký thi lại tháng 12 ngày 30/12/2018</x:String>
+                    <x:String>Thông báo nghỉ học ngày 29/12/2018</x:String>
+                </ListView>
+            </StackPanel>
+            
+        </Grid>
     </Grid>
 </Page>
