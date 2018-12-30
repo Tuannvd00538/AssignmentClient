@@ -45,7 +45,7 @@ namespace AssignmentClient
             }
         }
 
-        private async void Page_loaded(object sender, RoutedEventArgs e)
+        private void Page_loaded(object sender, RoutedEventArgs e)
         {
             //try
             //{

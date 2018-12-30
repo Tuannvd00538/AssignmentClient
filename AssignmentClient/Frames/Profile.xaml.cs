@@ -37,7 +37,7 @@ namespace AssignmentClient.Frames
         private void Edit_Profile(object sender, TappedRoutedEventArgs e)
         {
             var rootFrame = Window.Current.Content as Frame;
-            //rootFrame.Navigate(typeof(Frames.EditProfile));
+            rootFrame.Navigate(typeof(Frames.EditProfile));
         }
     }
 }
