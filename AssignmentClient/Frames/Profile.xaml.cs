@@ -26,5 +26,18 @@ namespace AssignmentClient.Frames
         {
             this.InitializeComponent();
         }
+        public ImageSource ProfilePicture { get; set; }
+
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var rootFrame = Window.Current.Content as Frame;
+        //    rootFrame.Navigate(typeof(Views.EditProfile));
+        //}
+
+        private void Edit_Profile(object sender, TappedRoutedEventArgs e)
+        {
+            var rootFrame = Window.Current.Content as Frame;
+            //rootFrame.Navigate(typeof(Frames.EditProfile));
+        }
     }
 }
