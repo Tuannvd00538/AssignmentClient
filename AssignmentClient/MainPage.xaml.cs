@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using AssignmentClient.Frames;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,6 +18,31 @@ namespace AssignmentClient
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void Login_Button(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Xử lý login ở đây");
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                StorageFile config_login = await ApplicationData.Current.LocalFolder.GetFileAsync("config_login.json");
+                String info = await FileIO.ReadTextAsync(config_login);
+
+                if (info != "")
+                {
+
+                    this.Frame.Navigate(typeof(HomePage));
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                this.Frame.Navigate(typeof(HomePage));
+                Debug.WriteLine("Login...");
+            }
         }
     }
 }
