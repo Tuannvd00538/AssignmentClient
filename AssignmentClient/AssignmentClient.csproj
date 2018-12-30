@@ -121,7 +121,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Entity\Classes.cs" />
+    <Compile Include="Entity\ErrorResponse.cs" />
     <Compile Include="Entity\Subjects.cs" />
+    <Compile Include="Entity\TokenResponse.cs" />
     <Compile Include="Frames\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
