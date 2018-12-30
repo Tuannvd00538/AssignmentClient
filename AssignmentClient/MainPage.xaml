@@ -9,19 +9,27 @@
     Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <StackPanel VerticalAlignment="Center">
-            <TextBlock HorizontalAlignment="Center" Text="Hello World!" FontSize="37" FontWeight="Bold"/>
-            <TextBlock x:Name="Response_Login" HorizontalAlignment="Center" Foreground="Red"/>
+    <Grid>
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock FontWeight="Bold" FontSize="30" Text="Welcome to Gì Nhỉ" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 100, 0, 20"/>
             <RelativePanel HorizontalAlignment="Center">
-                <TextBox x:Name="Username" Header="Username:" Width="400"/>
-                <TextBlock x:Name="Username_Message" RelativePanel.Below="Username" Foreground="Red"/>
+                <TextBlock Text="Email" Margin="0, 0, 0,30"/>
+                <TextBox x:Name="Email" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="480" Margin="0, 40, 0, 0"/>
             </RelativePanel>
-            <RelativePanel HorizontalAlignment="Center">
-                <PasswordBox x:Name="Password" Header="Password:" Width="400"/>
-                <TextBlock x:Name="Password_Message" RelativePanel.Below="Password" Foreground="Red"/>
+            <RelativePanel HorizontalAlignment="Center" Margin="20">
+                <TextBlock Text="Password"  Margin="0, 0, 0,30"></TextBlock>
+                <PasswordBox x:Name="Password" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="480" RenderTransformOrigin="0.488,-0.464" Margin="0, 40, 0, 0"/>
             </RelativePanel>
-            <Button Content="LOGIN" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Click="Login_Button" Height="41" Width="124"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Foreground="White" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5, 0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="Red" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
         </StackPanel>
-    </ScrollViewer>
+    </Grid>
 </Page>
