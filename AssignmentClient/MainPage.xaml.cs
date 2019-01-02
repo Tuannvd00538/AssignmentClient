@@ -23,17 +23,52 @@ namespace AssignmentClient
         {
             this.InitializeComponent();
         }
-        private static string API_LOGIN = "https://oauth2servercontext.azurewebsites.net/_api/v1/Authentication";
+        private static string API_LOGIN = "https://oauth2servercontext.azurewebsites.net/_api/v1/Authentication/Login";
 
         private async void Login_Button(object sender, RoutedEventArgs e)
         {
-            Dictionary<String, String> LoginInform = new Dictionary<string, string>();
-            LoginInform.Add("email", "vuongnd@gmail.com");
-            LoginInform.Add("password", "vuong");
+            Dictionary<String, String> LoginInfo = new Dictionary<string, string>();
+            LoginInfo.Add("email", this.Email.Text);
+            LoginInfo.Add("password", this.password.Text);
+
+            
+       
             HttpClient httpClient = new HttpClient();
-            var response = new StringContent(JsonConvert.SerializeObject(LoginInform), System.Text.Encoding.UTF8, "application/json");
-            var content = await httpClient.PostAsync(API_LOGIN, response).Result.Content.ReadAsStringAsync();
-            Debug.WriteLine(content);
+            StringContent content = new StringContent(JsonConvert.SerializeObject(LoginInfo), System.Text.Encoding.UTF8, "application/json");
+            var response = httpClient.PostAsync(API_LOGIN, content).Result;
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                // save file...
+                Debug.WriteLine("Debug Success:" + responseContent);
+                // Doc token
+                TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(responseContent);
+
+                // Luu token
+                StorageFolder folder = ApplicationData.Current.LocalFolder;
+                StorageFile file = await folder.CreateFileAsync("token.txt", CreationCollisionOption.ReplaceExisting);
+                await FileIO.WriteTextAsync(file, responseContent);
+
+                // Lay thong tin ca nhan bang token.
+                HttpClient httpClient2 = new HttpClient();
+                var response2 = new StringContent(JsonConvert.SerializeObject(LoginInfo), System.Text.Encoding.UTF8, "application/json");
+                var content2 = await httpClient.PostAsync(API_LOGIN, response2).Result.Content.ReadAsStringAsync();
+                Debug.WriteLine(content);
+                this.Frame.Navigate(typeof(HomePage));
+            }
+            else
+            {
+                Debug.WriteLine("Debug Error:" + responseContent);
+               // //Xu ly loi.
+               //ErrorResponse errorObject = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
+               // if (errorObject != null)
+               // {
+               //     this.error_UserName.Text = "username or password is incorrect";
+               //     this.error_UserName.Visibility = Visibility.Visible;
+               // }
+            }
+
 
             if (this.Email.Text == "")
             {

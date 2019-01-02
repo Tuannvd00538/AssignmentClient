@@ -11,7 +11,7 @@
 
     <Grid>
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <TextBlock FontWeight="Bold" FontSize="30" Text="Welcome to Gì Nhỉ" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 100, 0, 20"/>
+            <TextBlock FontWeight="Bold" FontSize="30" Text="Login Form" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 100, 0, 20"/>
             <RelativePanel HorizontalAlignment="Center">
                 <TextBlock Text="Email" Margin="0, 0, 0,30"/>
                 <TextBox x:Name="Email" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="480" Margin="0, 40, 0, 0"/>
