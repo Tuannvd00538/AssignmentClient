@@ -10,7 +10,7 @@
 
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Center" Margin="0,90,0,0">
-            <PersonPicture Margin="0,30,0,0" HorizontalAlignment="Center" ProfilePicture="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681"/>
+            <PersonPicture Margin="0,30,0,0" HorizontalAlignment="Center" ProfilePicture=""/>
             <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="25" Text="FullName"/>
             <TextBlock HorizontalAlignment="Center" FontSize="22" Text="Mã Sinh Viên"/>
             <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
