@@ -15,6 +15,12 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AssignmentClient.Frames;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.Storage;
+using System.Net.Http;
+using Windows.Data.Json;
+using Newtonsoft.Json;
+using Windows.UI.Xaml.Media.Imaging;
+using System.Diagnostics;
 
 
 
@@ -27,6 +33,8 @@ namespace AssignmentClient
     /// </summary>
     public sealed partial class HomePage : Page
     {
+        private static string GetProfile_Api = "https://backendcontroller.azurewebsites.net/_api/v1/Accounts/";
+
         public HomePage()
         {
             this.InitializeComponent();
@@ -44,7 +52,7 @@ namespace AssignmentClient
             ("profile", typeof(Profile)),
         };
 
-        private void NavView_Loaded(object sender, RoutedEventArgs e)
+        private async void NavView_Loaded(object sender, RoutedEventArgs e)
         {
             // You can also add items in code behind
             NavView.MenuItems.Add(new NavigationViewItemSeparator());
@@ -67,6 +75,28 @@ namespace AssignmentClient
             };
             altLeft.Invoked += BackInvoked;
             this.KeyboardAccelerators.Add(altLeft);
+
+
+            //Load profile
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            HttpClient httpClient = new HttpClient();
+            StorageFile file = await ApplicationData.Current.LocalFolder.GetFileAsync("token.txt");
+            String credential = await FileIO.ReadTextAsync(file);
+
+            JsonObject data = JsonObject.Parse(credential);
+
+            HttpClient client = new HttpClient();
+            var response = httpClient.GetAsync(GetProfile_Api + data.GetNamedValue("ownerId"));
+            var res = await response.Result.Content.ReadAsStringAsync();
+
+            StorageFile info = await folder.CreateFileAsync("info.txt", CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(info, res);
+
+            dynamic profile = JsonConvert.DeserializeObject(res);
+
+            this.AvatarApp.ImageSource = new BitmapImage(new Uri(profile.Avatar.ToString()));
+            this.FullName.Text = profile.FirstName + " " + profile.LastName;
+            this.RollNumber.Text = profile.RollNumber.ToString().ToUpper();
         }
 
         private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
