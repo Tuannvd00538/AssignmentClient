@@ -13,7 +13,11 @@
             <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Center">
                 <TextBlock FontWeight="Bold" FontSize="40" Text="Edit Profile"/>
             </RelativePanel>
-            <PersonPicture x:Name="YourAvatar" Margin="0,30,0,0" ProfilePicture="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681"/>
+            <Ellipse Width="120" Height="120" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <Ellipse.Fill>
+                    <ImageBrush x:Name="Avatar"/>
+                </Ellipse.Fill>
+            </Ellipse>
             <RelativePanel HorizontalAlignment="Center">
                 <Button Content="Select Your Photo" Margin="0,20,0,0" VerticalAlignment="Top" Click="Select_Photo" />
             </RelativePanel>
@@ -21,8 +25,9 @@
             <RelativePanel Margin="0,0,0,0" >
                 <TextBox x:Name="Email" Background="White" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
             </RelativePanel>
-            <RelativePanel Margin="0,20,0,0">
-                <TextBox x:Name="RollNumber"  FontSize="20" Header="Roll Number" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
+            <TextBlock Margin="0,20,0,0" FontSize="20" Text="RollNumber" />
+            <RelativePanel Margin="0,0,0,0">
+                <TextBox x:Name="RollNumber"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
             </RelativePanel>
             <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Center">
                 <TextBox x:Name="FullName"  FontSize="20" Header="Full Name" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
@@ -37,9 +42,11 @@
                 <RadioButton Tag="1" Content="Female" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <RadioButton Tag="2" Content="Other"  Checked="Select_Gender" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Background="White" FontWeight="Bold" Content="Save" Margin="0,30,0,0" Click="Edit_Save"/>
-            </StackPanel>
+
+            <RelativePanel HorizontalAlignment="Center">
+                <Button Background="White" FontWeight="Bold" Content="Save" Margin="-30,20,0,0" Click="Edit_Save"/>
+                <Button Background="White" FontWeight="Bold" Margin="100,20,0,0" Content="Cancel" Click="Cancle"/>
+            </RelativePanel>
         </StackPanel>
     </ScrollViewer>
 </Page>

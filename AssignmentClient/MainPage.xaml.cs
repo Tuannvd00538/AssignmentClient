@@ -32,9 +32,11 @@ namespace AssignmentClient
             
             if (this.Email.Text != "" && this.Password.Password != "")
             {
-                Dictionary<String, String> LoginInfo = new Dictionary<string, string>();
-                LoginInfo.Add("Email", this.Email.Text);
-                LoginInfo.Add("Password", this.Password.Password.ToString());
+                Dictionary<String, String> LoginInfo = new Dictionary<string, string>
+                {
+                    { "Email", this.Email.Text },
+                    { "Password", this.Password.Password.ToString() }
+                };
 
 
                 HttpClient httpClient = new HttpClient();
@@ -58,7 +60,7 @@ namespace AssignmentClient
                     HttpClient httpClient2 = new HttpClient();
                     var response2 = new StringContent(JsonConvert.SerializeObject(LoginInfo), System.Text.Encoding.UTF8, "application/json");
                     var content2 = await httpClient.PostAsync(API_LOGIN, response2).Result.Content.ReadAsStringAsync();
-                    Debug.WriteLine(content);
+                    Debug.WriteLine(content2);
                     this.Frame.Navigate(typeof(HomePage));
                 }
                 else
@@ -85,7 +87,7 @@ namespace AssignmentClient
         {
             if (this.Email.Text == "")
             {
-                this.error_UserName.Text = "Please enter introduction";
+                this.error_UserName.Text = "Bạn chưa nhập email!";
             }
             else
             {
@@ -93,27 +95,27 @@ namespace AssignmentClient
             }
             if (this.Password.Password == "")
             {
-                this.error_Password.Text = "Please enter introduction";
+                this.error_Password.Text = "Bạn chưa nhập mật khẩu!";
             }
         }
-        private void Page_loaded(object sender, RoutedEventArgs e)
+        private async void Page_loaded(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    StorageFile config_login = await ApplicationData.Current.LocalFolder.GetFileAsync("config_login.json");
-            //    string info = await FileIO.ReadTextAsync(config_login);
+            try
+            {
+                StorageFile config_login = await ApplicationData.Current.LocalFolder.GetFileAsync("token.txt");
+                string info = await FileIO.ReadTextAsync(config_login);
 
-            //    if (info != "")
-            //    {
+                if (info != "")
+                {
 
-            //        this.Frame.Navigate(typeof(HomePage));
-            //    
-            //}
-            //catch (FileNotFoundException)
-            //{
-            //    this.Frame.Navigate(typeof(HomePage));
-            //    Debug.WriteLine("login...");
-            //}
+                    this.Frame.Navigate(typeof(HomePage));
+
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Debug.WriteLine("login...");
+            }
         }
     }
 }

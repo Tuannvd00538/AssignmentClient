@@ -38,18 +38,18 @@
                 </NavigationViewItem>
             </NavigationView.PaneFooter>
             <NavigationView.MenuItems>
-                <StackPanel Orientation="Horizontal">
-                    <Image Width="30" Source="/Assets/img_210318.png">
-                    </Image>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,-0.333,0" VerticalAlignment="Stretch">
+                    <Ellipse Width="30" Height="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">                        <Ellipse.Fill>                            <ImageBrush x:Name="AvatarApp"/>                        </Ellipse.Fill>                    </Ellipse>
                     <StackPanel>
-                        <TextBlock Margin="10, 0, 0, 0" Text="Full Name"/>
-                        <TextBlock Margin="10, 0, 0, 0" Text="D00544"/>
+                        <TextBlock Margin="10, 0, 0, 0" FontWeight="Bold" x:Name="FullName"/>
+                        <TextBlock Margin="10, 0, 0, 0" x:Name="RollNumber"/>
                     </StackPanel>
-                    
+
                 </StackPanel>
                 <NavigationViewItemSeparator>
                     
                 </NavigationViewItemSeparator>
+                
                 <NavigationViewItem Icon="list" Content="Report" Tag="report" x:Name="Report" ToolTipService.ToolTip="Report"/>
                 <NavigationViewItem Icon="tag" Content="Profile" Tag="profile" x:Name="Profile" ToolTipService.ToolTip="Profile"/>
             </NavigationView.MenuItems>

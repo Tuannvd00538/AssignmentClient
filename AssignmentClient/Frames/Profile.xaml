@@ -6,30 +6,34 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="GetProfile">
 
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Center" Margin="0,90,0,0">
-            <PersonPicture Margin="0,30,0,0" HorizontalAlignment="Center" ProfilePicture=""/>
-            <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="25" Text="FullName"/>
-            <TextBlock HorizontalAlignment="Center" FontSize="22" Text="Mã Sinh Viên"/>
+            <Ellipse Width="120" Height="120" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <Ellipse.Fill>
+                    <ImageBrush x:Name="AvatarApp"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="25" x:Name="FullName"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="22" x:Name="RollNumber"/>
             <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
-                <TextBlock Text="Email : default" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock x:Name="Email" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
             <RelativePanel  Margin="0,40,0,0" HorizontalAlignment="Left">
-                <TextBlock Text="Roll Number : default" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock x:Name="rollNumber" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
             <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
-                <TextBlock Text="Full Name : default" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock x:Name="fullName" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
             <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
-                <TextBlock Text="Phone : default" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock x:Name="Phone" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
             <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
-                <TextBlock Text="Birthday : default" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock x:Name="Birthday" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
             <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
-                <TextBlock Text="Gender : Unknow" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock x:Name="Gender" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
             <!--//<Button FontWeight="Bold" Content="Edit Profile" Click="Button_Click"/>-->
             <StackPanel Margin="0,40,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="Edit_Profile">

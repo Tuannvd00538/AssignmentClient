@@ -1,12 +1,15 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using Windows.Data.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -18,9 +21,9 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace AssignmentClient.Frames
@@ -30,18 +33,39 @@ namespace AssignmentClient.Frames
     /// </summary>
     public sealed partial class EditProfile : Page
     {
+        private static string GetProfile_Api = "https://backendcontroller.azurewebsites.net/_api/v1/Accounts/";
         public EditProfile()
         {
             this.InitializeComponent();
             this.Email.IsEnabled = false;
-            this.Email.Text = "abc.xzy.com";
+            this.Email.Text = "";
             this.RollNumber.IsEnabled = false;
+            GetProfile();
+            
+        }
+
+        private async void GetProfile()
+        {
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            HttpClient httpClient = new HttpClient();
+            StorageFile file = await ApplicationData.Current.LocalFolder.GetFileAsync("info.txt");
+            String credential = await FileIO.ReadTextAsync(file);
+
+            dynamic profile = JsonConvert.DeserializeObject(credential);
+
+            this.FullName.Text = profile.FirstName + " " + profile.LastName;
+            this.RollNumber.Text = profile.RollNumber.ToString().ToUpper();
+            this.Email.Text =  profile.Email;
+            this.RollNumber.Text =  profile.RollNumber.ToString().ToUpper();
+            this.FullName.Text =  profile.FirstName + " " + profile.LastName;
+            this.Phone.Text = profile.Phone;
+            this.Avatar.ImageSource = new BitmapImage(new Uri(profile.Avatar.ToString()));
         }
 
         private void Edit_Save(object sender, RoutedEventArgs e)
         {
             var rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(Frames.Profile));
+            rootFrame.Navigate(typeof(Frames.Profile), null, new DrillInNavigationTransitionInfo());
 
         }
 
@@ -95,7 +119,7 @@ namespace AssignmentClient.Frames
 
                 //account.avatar = objImgur.SelectToken("data").SelectToken("link").ToString();
 
-                YourAvatar.ProfilePicture = bitmapImage;
+                Avatar.ImageSource = bitmapImage;
             }
 
         }
@@ -104,5 +128,11 @@ namespace AssignmentClient.Frames
         {
             RadioButton radioGender = sender as RadioButton;
         }
+
+        private void Cancle(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HomePage));
+        }
     }
+
 }
