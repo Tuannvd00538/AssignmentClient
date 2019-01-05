@@ -26,5 +26,10 @@ namespace AssignmentClient.Frames
         {
             this.InitializeComponent();
         }
+
+        private async  void ShowDialog(object sender, TappedRoutedEventArgs e)
+        {
+            //show dialog tai day :v
+        }
     }
 }

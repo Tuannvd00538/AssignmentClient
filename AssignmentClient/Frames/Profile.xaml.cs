@@ -37,8 +37,9 @@ namespace AssignmentClient.Frames
         public ImageSource ProfilePicture { get; set; }
         private void Edit_Profile(object sender, TappedRoutedEventArgs e)
         {
-            var rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(Frames.EditProfile), null, new DrillInNavigationTransitionInfo());
+            //var rootFrame = Window.Current.Content as Frame;
+            //rootFrame.Navigate(typeof(Frames.EditProfile), null, new DrillInNavigationTransitionInfo());
+            
         }
 
         private async void GetProfile(object sender, RoutedEventArgs e)
@@ -53,18 +54,18 @@ namespace AssignmentClient.Frames
             this.FullName.Text = profile.FirstName + " " + profile.LastName;
             this.RollNumber.Text = profile.RollNumber.ToString().ToUpper();
             this.Email.Text = "Email: " + profile.Email;
-            this.rollNumber.Text = "RollNumber: " + profile.RollNumber.ToString().ToUpper();
-            this.fullName.Text = "FullName: " + profile.FirstName + " " + profile.LastName;
-            this.Phone.Text = "Phone: " + profile.Phone;
-            this.Birthday.Text = "Birthday: " + profile.BirthDay;
+            this.rollNumber.Text = "Mã Sinh Viên: " + profile.RollNumber.ToString().ToUpper();
+            this.fullName.Text = "Họ Tên: " + profile.FirstName + " " + profile.LastName;
+            this.Phone.Text = "Số Điện Thoại: " + profile.Phone;
+            this.Birthday.Text = "Ngày Sinh: " + profile.BirthDay;
             var gender = (int)profile.Gender;
             var gioitinh = "";
             if (gender == 0)
             {
-                gioitinh = "Nữ";
+                gioitinh = "Nam";
             } else if (gender == 1)
             {
-                gioitinh = "Nam";
+                gioitinh = "Nữ";
             } else if (gender == 2)
             {
                 gioitinh = "Khác";

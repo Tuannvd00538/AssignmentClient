@@ -25,27 +25,27 @@
             <RelativePanel Margin="0,0,0,0" >
                 <TextBox x:Name="Email" Background="White" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
             </RelativePanel>
-            <TextBlock Margin="0,20,0,0" FontSize="20" Text="RollNumber" />
+            <TextBlock Margin="0,20,0,0" FontSize="20" Text="Mã Sinh Viên" />
             <RelativePanel Margin="0,0,0,0">
                 <TextBox x:Name="RollNumber"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
             </RelativePanel>
             <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Center">
-                <TextBox x:Name="FullName"  FontSize="20" Header="Full Name" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
+                <TextBox x:Name="FullName"  FontSize="20" Header="Họ Và Tên" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
             </RelativePanel>
             <RelativePanel Margin="0,20,0,0">
-                <TextBox x:Name="Phone" FontSize="20" Header="Phone" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
+                <TextBox x:Name="Phone" FontSize="20" Header="Số Điện Thoại" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
             </RelativePanel>
-            <CalendarDatePicker Margin="0,20,0,0" FontSize="20" Header="Birthday"></CalendarDatePicker>
+            <CalendarDatePicker Margin="0,20,0,0" FontSize="20" Header="Ngày Sinh"></CalendarDatePicker>
             <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="0,20,0,0" Text="Gender" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <StackPanel Orientation="Horizontal">
-                <RadioButton Tag="0" Content="Male" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <RadioButton Tag="1" Content="Female" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <RadioButton Tag="2" Content="Other"  Checked="Select_Gender" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <RadioButton Tag="0" Content="Nam" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <RadioButton Tag="1" Content="Nữ" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <RadioButton Tag="2" Content="Khác"  Checked="Select_Gender" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             </StackPanel>
 
             <RelativePanel HorizontalAlignment="Center">
-                <Button Background="White" FontWeight="Bold" Content="Save" Margin="-30,20,0,0" Click="Edit_Save"/>
-                <Button Background="White" FontWeight="Bold" Margin="100,20,0,0" Content="Cancel" Click="Cancle"/>
+                <Button Background="White" FontWeight="Bold" Content="Lưu" Margin="-30,20,0,0" Click="Edit_Save"/>
+                <Button Background="White" FontWeight="Bold" Margin="100,20,0,0" Content="Hủy" Click="Cancle"/>
             </RelativePanel>
         </StackPanel>
     </ScrollViewer>

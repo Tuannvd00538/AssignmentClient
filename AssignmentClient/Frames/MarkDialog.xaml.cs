@@ -17,21 +17,13 @@ using Windows.UI.Xaml.Navigation;
 
 namespace AssignmentClient.Frames
 {
-    public sealed partial class LogoutDialog : ContentDialog
+
+    public sealed partial class MarkDialog : ContentDialog
     {
-        public LogoutDialog()
+        public MarkDialog()
         {
             this.InitializeComponent();
-        }
-
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-            var rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(Frames.Profile));
-        }
-
-        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
+            MarkDialog.ShowAsync();
         }
     }
 }
