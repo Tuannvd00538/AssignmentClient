@@ -54,7 +54,7 @@
                     <x:String>Đã có điểm môn C# lớp T1707A</x:String>
                     <x:String>Đã có điểm môn HTML/CSS/JS lớp T1708E</x:String>
                     <x:String>Thông báo lịch đăng ký thi lại tháng 12 ngày 30/12/2018</x:String>
-                    <x:String>Thông báo nghỉ học ngày 29/12/2018</x:String>
+                    <TextBlock Tapped="ShowDialog">Thông báo nghỉ học ngày 29/12/2018</TextBlock>
                 </ListView>
             </StackPanel>
             
