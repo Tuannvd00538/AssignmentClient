@@ -19,11 +19,11 @@ namespace AssignmentClient.Entity
         {
             var subjects = new List<Subjects>();
 
-            subjects.Add(new Subjects { Name = "A", Id = 2, subjects = "PHP" });
-            subjects.Add(new Subjects { Name = "B", Id = 2, subjects = "PHP" });
-            subjects.Add(new Subjects { Name = "C", Id = 2, subjects = "PHP" });
-            subjects.Add(new Subjects { Name = "D", Id = 2, subjects = "PHP" });
-            subjects.Add(new Subjects { Name = "E", Id = 2, subjects = "PHP" });
+            subjects.Add(new Subjects { Name = "PHP"});
+            subjects.Add(new Subjects { Name = "ASP.NET Core MVC"});
+            subjects.Add(new Subjects { Name = "Java"});
+            subjects.Add(new Subjects { Name = "C#"});
+            subjects.Add(new Subjects { Name = "C++"});
 
             return subjects;
         }

@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.Resources>
+    <!--<Page.Resources>
         <DataTemplate x:Key="BookListDataTemplate" x:DataType="data:Classes">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <StackPanel Margin="20,20,10,0">
@@ -54,6 +54,6 @@
                    Margin="20,20,0,0" />
         <ListView ItemsSource="{x:Bind Classes}" 
                   ItemTemplate="{StaticResource BookListDataTemplate}">
-        </ListView>
-    </Grid>
+        </ListView>--><!--
+    </Grid>-->
 </Page>

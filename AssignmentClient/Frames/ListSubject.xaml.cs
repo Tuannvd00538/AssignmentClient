@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,6 +29,12 @@ namespace AssignmentClient.Report
         {
             this.InitializeComponent();
             Subjects = SubjectsManager.GetSubject();
+
         }
+
+        private void ShowMarks(object sender, ItemClickEventArgs e)
+        { 
+        }
+
     }
 }
