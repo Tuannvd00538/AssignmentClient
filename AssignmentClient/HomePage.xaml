@@ -33,26 +33,29 @@
                     BackRequested="NavView_BackRequested" IsPaneOpen="True">
             
             <NavigationView.MenuItems>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="-5,0,-0.333,0" VerticalAlignment="Stretch">
-                    <Ellipse Width="30" Height="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-                        <Ellipse.Fill>
-                            <ImageBrush x:Name="AvatarApp"/>
-                        </Ellipse.Fill>
-                    </Ellipse>
-                    <StackPanel>
-                        <TextBlock Margin="10, 0, 0, 0" FontWeight="Bold" x:Name="FullName"/>
-                        <TextBlock Margin="10, 0, 0, 0" x:Name="RollNumber"/>
+                <NavigationViewItem Tag="redirect">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,-0.333,0" VerticalAlignment="Stretch" Tag="redirect">
+                        <Ellipse Width="30" Height="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="AvatarApp"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel>
+                            <TextBlock Margin="10, 0, 0, 0" FontWeight="Bold" x:Name="FullName"/>
+                            <TextBlock Margin="10, 0, 0, 0" x:Name="RollNumber"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
+                </NavigationViewItem>
                 <NavigationViewItemSeparator>
                     
                 </NavigationViewItemSeparator>
                 
-                <NavigationViewItem Icon="list" Content="Report" Tag="report" x:Name="Report" ToolTipService.ToolTip="Report"/>
-                <NavigationViewItem Icon="tag" Content="Profile" Tag="profile" x:Name="Profile" ToolTipService.ToolTip="Profile"/>
+                <NavigationViewItem Icon="Home" Content="Trang chủ" Tag="report" x:Name="Report"/>
+                <NavigationViewItem Icon="Contact" Content="Trang cá nhân" Tag="profile" x:Name="Profile"/>
+                <NavigationViewItem Icon="Permissions" Content="Đổi mật khẩu"/>
             </NavigationView.MenuItems>
             <NavigationView.PaneFooter>
-                <NavigationViewItem Icon="Home" Content="Logout" Tag="logout" x:Name="Logout" Foreground="Red" Tapped="logoutClick">
+                <NavigationViewItem Icon="Forward" Content="Logout" Tag="logout" x:Name="Logout" Foreground="Red" Tapped="logoutClick">
                 </NavigationViewItem>
             </NavigationView.PaneFooter>
             <NavigationView.AutoSuggestBox>
@@ -79,7 +82,7 @@
                 </DataTemplate>
             </NavigationView.HeaderTemplate>
 
-            <Frame x:Name="ContentFrame" Margin="0,-70,0,0"/>
+            <Frame x:Name="ContentFrame" Margin="0,0,0,0"/>
         </NavigationView>
 
        

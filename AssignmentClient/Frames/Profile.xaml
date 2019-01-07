@@ -17,22 +17,22 @@
             </Ellipse>
             <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="25" x:Name="FullName"/>
             <TextBlock HorizontalAlignment="Center" FontSize="22" x:Name="RollNumber"/>
-            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,30,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="Email" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,30,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="rollNumber" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,30,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="fullName" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,30,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="Phone" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,30,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="Birthday" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,30,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="Gender" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
             <!--//<Button FontWeight="Bold" Content="Edit Profile" Click="Button_Click"/>-->
