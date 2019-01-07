@@ -1,0 +1,106 @@
+﻿<Page
+    x:Class="AssignmentClient.Frames.Marks"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AssignmentClient.Frames"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid BorderBrush="Black" BorderThickness="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel BorderBrush="Black" BorderThickness="1"  Grid.Row="0" Grid.ColumnSpan="3" Padding="0, 17, 0, 0">
+            <TextBlock Foreground="Red" FontSize="25" TextAlignment="Center" Text="Báo Cáo"></TextBlock>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1"  Grid.Row="1" Grid.Column="0" >
+            <TextBlock TextAlignment="Center" Text="Thể Loại Thi" Padding="0, 35, 0, 0"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="1" >
+            <TextBlock TextAlignment="Center" Padding="0, 35, 0, 0" Text="Hình Thức Thi"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1"  Grid.Row="1" Grid.Column="2" >
+            <TextBlock TextAlignment="Center" Padding="0, 35, 0, 0" Text="Điểm"></TextBlock>
+        </StackPanel>
+
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.RowSpan="3">
+            <TextBlock Padding="0, 100, 0, 0" TextAlignment="Center" Text="Thi Hết Môn"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="1">
+            <TextBlock Padding="0, 30, 0, 0" TextAlignment="Center" Text="Assignment"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="3" Grid.Column="1">
+            <TextBlock Padding="0, 30, 0, 0" TextAlignment="Center" Text="Thực Hành"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="4" Grid.Column="1">
+            <TextBlock Padding="0, 30, 0, 0" TextAlignment="Center" Text="Lý Thuyết"/>
+        </StackPanel>
+
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="5" Grid.Column="0" Grid.RowSpan="3">
+            <TextBlock Padding="0, 100, 0, 0" TextAlignment="Center" Text="Thi Cuối Kỳ"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="5" Grid.Column="1">
+            <TextBlock Padding="0, 30, 0, 0" Text="Assignment" TextAlignment="Center"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="6" Grid.Column="1">
+            <TextBlock Padding="0, 30, 0, 0" TextAlignment="Center" Text="Thực Hành"></TextBlock>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="7" Grid.Column="1" >
+            <TextBlock Padding="0, 30, 0, 0" Text="Lý Thuyết" TextAlignment="Center"/>
+        </StackPanel>
+
+
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="8" Grid.Column="0" Grid.RowSpan="2">
+            <TextBlock Padding="0, 70, 0, 0" TextAlignment="Center" Text="Tổng Kết"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="8" Grid.Column="1">
+            <TextBlock Padding="0, 30, 0, 0"  TextAlignment="Center" Text="Điểm Trung Bình"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="9" Grid.Column="1">
+            <TextBlock Padding="0, 30, 0, 0" TextAlignment="Center" Text="Trạng Thái"/>
+        </StackPanel>
+
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="3">
+            <TextBlock Padding="0, 30, 0, 0"  TextAlignment="Center" Foreground="Green" Text="9.0"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="3" Grid.Column="3">
+            <TextBlock Padding="0, 30, 0, 0"  TextAlignment="Center" Foreground="Green" Text="8.0"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="4" Grid.Column="3">
+            <TextBlock Padding="0, 30, 0, 0"  TextAlignment="Center" Foreground="Green" Text="10.0"/>
+        </StackPanel>
+
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="5" Grid.Column="3">
+            <TextBlock Padding="0, 30, 0, 0"  TextAlignment="Center" Foreground="Red" Text="Not graded"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="6" Grid.Column="3">
+            <TextBlock Padding="0, 30, 0, 0"  TextAlignment="Center" Foreground="Red" Text="Not graded"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="7" Grid.Column="3">
+            <TextBlock Padding="0, 30, 0, 0"  TextAlignment="Center" Foreground="Red" Text="Not graded"/>
+        </StackPanel>
+
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="8" Grid.Column="3">
+            <TextBlock Padding="0, 30, 0, 0"  TextAlignment="Center" Foreground="Red" Text="Not graded"/>
+        </StackPanel>
+        <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="9" Grid.Column="3">
+            <TextBlock Padding="0, 30, 0, 0"  TextAlignment="Center" Text="Qua môn" Foreground="Green"/>
+        </StackPanel>
+    </Grid>
+</Page>
