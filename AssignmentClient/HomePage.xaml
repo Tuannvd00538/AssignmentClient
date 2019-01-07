@@ -20,23 +20,18 @@
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
-                        <Setter Target="NavView.PaneDisplayMode" Value="Top"/>
+                        <Setter Target="NavView.PaneDisplayMode" Value="Left"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
+
         <NavigationView x:Name="NavView"
                     ItemInvoked="NavView_ItemInvoked"
                     IsSettingsVisible="False"
                     Loaded="NavView_Loaded"
                     BackRequested="NavView_BackRequested" IsPaneOpen="True">
-
             
-            <NavigationView.PaneFooter>
-                <NavigationViewItem Icon="Home" Content="Logout" Tag="logout" x:Name="Logout" Foreground="Red">
-                </NavigationViewItem>
-            </NavigationView.PaneFooter>
             <NavigationView.MenuItems>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,-0.333,0" VerticalAlignment="Stretch">
                     <Ellipse Width="30" Height="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
@@ -48,8 +43,8 @@
                         <TextBlock Margin="10, 0, 0, 0" FontWeight="Bold" x:Name="FullName"/>
                         <TextBlock Margin="10, 0, 0, 0" x:Name="RollNumber"/>
                     </StackPanel>
-
-                </StackPanel>
+                </NavigationViewItem>
+                
                 <NavigationViewItemSeparator>
                     
                 </NavigationViewItemSeparator>
@@ -57,6 +52,10 @@
                 <NavigationViewItem Icon="list" Content="Report" Tag="report" x:Name="Report" ToolTipService.ToolTip="Report"/>
                 <NavigationViewItem Icon="tag" Content="Profile" Tag="profile" x:Name="Profile" ToolTipService.ToolTip="Profile"/>
             </NavigationView.MenuItems>
+            <NavigationView.PaneFooter>
+                <NavigationViewItem Icon="Home" Content="Logout" Tag="logout" x:Name="Logout" Foreground="Red" Tapped="logoutClick">
+                </NavigationViewItem>
+            </NavigationView.PaneFooter>
             <NavigationView.AutoSuggestBox>
            <AutoSuggestBox x:Name="ASB" QueryIcon="Find"/>
             </NavigationView.AutoSuggestBox>

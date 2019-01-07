@@ -21,6 +21,7 @@ using Windows.Data.Json;
 using Newtonsoft.Json;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Diagnostics;
+using Windows.UI.Popups;
 
 
 
@@ -50,6 +51,7 @@ namespace AssignmentClient
         {
             ("report", typeof(Dashboard)),
             ("profile", typeof(Profile)),
+            ("redirect", typeof(Profile))
         };
 
         private async void NavView_Loaded(object sender, RoutedEventArgs e)
@@ -98,7 +100,20 @@ namespace AssignmentClient
             this.FullName.Text = profile.FirstName + " " + profile.LastName;
             this.RollNumber.Text = profile.RollNumber.ToString().ToUpper();
         }
+        private async void handlerLogoutAsync(IUICommand command)
+        {
+            StorageFile deleteCurrentToken = await ApplicationData.Current.LocalFolder.GetFileAsync("token.txt");
+            StorageFile deleteCurrentInfo = await ApplicationData.Current.LocalFolder.GetFileAsync("info.txt");
 
+            await deleteCurrentToken.DeleteAsync();
+            await deleteCurrentInfo.DeleteAsync();
+            this.Frame.Navigate(typeof(MainPage));
+
+        }
+        private void CommandInvokedHandler(IUICommand command)
+        {
+
+        }
         private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
             if (args.InvokedItem == null)
@@ -168,6 +183,29 @@ namespace AssignmentClient
                     .OfType<NavigationViewItem>()
                     .First(n => n.Tag.Equals(item.Tag));
             }
+        }
+
+        private async void logoutClick(object sender, TappedRoutedEventArgs e)
+        {
+            // Create the message dialog and set its content
+            var messageDialog = new MessageDialog("Bạn có chắc chắn muốn đăng xuất?");
+
+            // Add commands and set their callbacks; both buttons use the same callback function instead of inline event handlers
+            messageDialog.Commands.Add(new UICommand(
+                "Hủy",
+                new UICommandInvokedHandler(this.CommandInvokedHandler)));
+            messageDialog.Commands.Add(new UICommand(
+                "Đăng xuất",
+                new UICommandInvokedHandler(handlerLogoutAsync)));
+
+            // Set the command that will be invoked by default
+            messageDialog.DefaultCommandIndex = 0;
+
+            // Set the command to be invoked when escape is pressed
+            messageDialog.CancelCommandIndex = 1;
+
+            // Show the message dialog
+            await messageDialog.ShowAsync();
         }
     }
 }

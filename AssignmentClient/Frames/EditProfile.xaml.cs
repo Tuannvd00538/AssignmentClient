@@ -132,6 +132,7 @@ namespace AssignmentClient.Frames
         private void Cancle(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(HomePage));
+            
         }
     }
 
