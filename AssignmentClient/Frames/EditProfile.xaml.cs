@@ -53,13 +53,15 @@ namespace AssignmentClient.Frames
 
             dynamic profile = JsonConvert.DeserializeObject(credential);
 
-            this.FullName.Text = profile.FirstName + " " + profile.LastName;
-            this.RollNumber.Text = profile.RollNumber.ToString().ToUpper();
-            this.Email.Text =  profile.Email;
-            this.RollNumber.Text =  profile.RollNumber.ToString().ToUpper();
-            this.FullName.Text =  profile.FirstName + " " + profile.LastName;
-            this.Phone.Text = profile.Phone;
-            this.Avatar.ImageSource = new BitmapImage(new Uri(profile.Avatar.ToString()));
+            FullName.Text = profile.FirstName + " " + profile.LastName;
+            RollNumber.Text = profile.RollNumber.ToString().ToUpper();
+            Email.Text =  profile.Email;
+            RollNumber.Text =  profile.RollNumber.ToString().ToUpper();
+            FullName.Text =  profile.FirstName + " " + profile.LastName;
+            Phone.Text = profile.Phone;
+            BirthDay.Date = profile.BirthDay;
+            Avatar.ImageSource = new BitmapImage(new Uri(profile.Avatar.ToString()));
+            AvatarUrl.Text = profile.Avatar;
         }
 
         private void Edit_Save(object sender, RoutedEventArgs e)
@@ -100,8 +102,6 @@ namespace AssignmentClient.Frames
                 request.Method = "POST";
 
                 ASCIIEncoding enc = new ASCIIEncoding();
-                //string postData = Convert.ToBase64String(file);
-                //byte[] bytes = enc.GetBytes(postData);
 
                 byte[] bytes = buffer.ToArray();
 
@@ -115,11 +115,8 @@ namespace AssignmentClient.Frames
                 var url = new StreamReader(response.GetResponseStream());
                 JObject objImgur = JObject.Parse(url.ReadToEnd());
 
-                Debug.WriteLine(objImgur);
-
-                //account.avatar = objImgur.SelectToken("data").SelectToken("link").ToString();
-
                 Avatar.ImageSource = bitmapImage;
+                AvatarUrl.Text = objImgur.SelectToken("data").SelectToken("link").ToString();
             }
 
         }

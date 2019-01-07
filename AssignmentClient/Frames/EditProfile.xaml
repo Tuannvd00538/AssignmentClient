@@ -44,14 +44,22 @@
                     <TextBox x:Name="Phone" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
                 </Border>
             </RelativePanel>
-            <CalendarDatePicker Margin="0,10,0,0" FontSize="20" Header="Ngày Sinh"></CalendarDatePicker>
+            <TextBlock Margin="0,10,0,0" FontSize="20" Text="Ngày Sinh"/>
+            <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1">
+                <CalendarDatePicker x:Name="BirthDay" Background="White" BorderThickness="0" FontSize="20" Width="450" HorizontalAlignment="Center"></CalendarDatePicker>
+            </Border>
             <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="0,20,0,0" Text="Giới Tính" TextWrapping="Wrap"/>
             <StackPanel Orientation="Horizontal">
                 <RadioButton Tag="0" Content="Nam" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <RadioButton Tag="1" Content="Nữ" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <RadioButton Tag="2" Content="Khác"  Checked="Select_Gender" IsChecked="True" HorizontalAlignment="Center"/>
             </StackPanel>
-
+            <TextBlock FontSize="20" Text="Avatar"/>
+            <RelativePanel>
+                <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1">
+                    <TextBox x:Name="AvatarUrl" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
+                </Border>
+            </RelativePanel>
             <RelativePanel HorizontalAlignment="Center" Margin="0,20,0,50">
                 <Border CornerRadius="5">
                     <Button Background="#00c292" Foreground="White" FontWeight="Bold" Content="Lưu" Click="Edit_Save" Width="60" Height="35"/>
