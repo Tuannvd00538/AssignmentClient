@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.Resources>
+    <!--<Page.Resources>
         <DataTemplate x:Key="BookListDataTemplate" x:DataType="data:Subjects">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <StackPanel Margin="20,20,10,0">
@@ -37,5 +37,5 @@
         <ListView BorderBrush="Black" BorderThickness="1" Grid.Row="1" ItemsSource="{x:Bind Subjects}" 
                   ItemTemplate="{StaticResource BookListDataTemplate}" IsItemClickEnabled="True" ItemClick="ShowMarks">
         </ListView>
-    </Grid>
+    </Grid>-->
 </Page>

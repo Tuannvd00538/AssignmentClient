@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,24 +9,33 @@ namespace AssignmentClient.Entity
 {
     public class Subjects
     {
-        public string Name { get; set; }
-        public int Id { get; set; }
-        public string subjects { get; set; }
+        public string SubjectName { get; set; }
     }
 
-    public class SubjectsManager
+    public class SubjectViewModel
     {
-        public static List<Subjects> GetSubject()
+        private Subjects defaultRecording = new Subjects();
+        public Subjects DefaultRecording { get { return this.defaultRecording; } }
+
+        private ObservableCollection<Subjects> recordings = new ObservableCollection<Subjects>();
+        public ObservableCollection<Subjects> Recordings { get { return this.recordings; } }
+        public SubjectViewModel()
         {
-            var subjects = new List<Subjects>();
-
-            subjects.Add(new Subjects { Name = "PHP"});
-            subjects.Add(new Subjects { Name = "ASP.NET Core MVC"});
-            subjects.Add(new Subjects { Name = "Java"});
-            subjects.Add(new Subjects { Name = "C#"});
-            subjects.Add(new Subjects { Name = "C++"});
-
-            return subjects;
+            this.recordings.Add(new Subjects()
+            {
+                SubjectName = "PHP",
+               
+            });
+            this.recordings.Add(new Subjects()
+            {
+                SubjectName = "Java"
+              
+            });
+            this.recordings.Add(new Subjects()
+            {
+                SubjectName = "ASP.NET Core MVC"
+                
+            });
         }
     }
 }

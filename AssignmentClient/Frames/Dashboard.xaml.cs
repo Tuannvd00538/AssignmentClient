@@ -29,14 +29,11 @@ namespace AssignmentClient.Frames
 
 
         private List<Classes> Classes;
-        private List<Subjects> Subjects;
 
         public Dashboard()
         {
             this.InitializeComponent();
             Classes = ClassManager.GetClasses();
-
-            Subjects = SubjectsManager.GetSubject();
         }
 
         private void ShowClass(object sender, ItemClickEventArgs e)
