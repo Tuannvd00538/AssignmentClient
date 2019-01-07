@@ -10,42 +10,47 @@
 
     <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Center">
-                <TextBlock FontWeight="Bold" FontSize="40" Text="Edit Profile"/>
-            </RelativePanel>
             <Ellipse Width="120" Height="120" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                 <Ellipse.Fill>
                     <ImageBrush x:Name="Avatar"/>
                 </Ellipse.Fill>
             </Ellipse>
-            <RelativePanel HorizontalAlignment="Center">
-                <Button Content="Select Your Photo" Margin="0,20,0,0" VerticalAlignment="Top" Click="Select_Photo" />
+            <RelativePanel HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Border CornerRadius="5">
+                    <Button Content="Đổi ảnh đại diện" Background="#03a9f3" Foreground="White" Click="Select_Photo" />
+                </Border>
             </RelativePanel>
-            <TextBlock FontSize="20" Text="Email" />
-            <RelativePanel Margin="0,0,0,0" >
-                <TextBox x:Name="Email" Background="White" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
+            <TextBlock FontSize="20" Text="Email:" />
+            <RelativePanel>
+                <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1">
+                    <TextBox x:Name="Email" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
+                </Border>
             </RelativePanel>
-            <TextBlock Margin="0,20,0,0" FontSize="20" Text="Mã Sinh Viên" />
-            <RelativePanel Margin="0,0,0,0">
-                <TextBox x:Name="RollNumber"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
+            <TextBlock Margin="0,10,0,0" FontSize="20" Text="Mã Sinh Viên" />
+            <RelativePanel>
+                <TextBox x:Name="RollNumber"  FontSize="20" HorizontalAlignment="Center" Width="450"/>
             </RelativePanel>
-            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Center">
-                <TextBox x:Name="FullName"  FontSize="20" Header="Họ Và Tên" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
+            <RelativePanel Margin="0,10,0,0" HorizontalAlignment="Center">
+                <TextBox x:Name="FullName"  FontSize="20" Header="Họ Và Tên" HorizontalAlignment="Center" Width="450"/>
             </RelativePanel>
-            <RelativePanel Margin="0,20,0,0">
-                <TextBox x:Name="Phone" FontSize="20" Header="Số Điện Thoại" HorizontalAlignment="Center" VerticalAlignment="Top" Width="735"/>
+            <RelativePanel Margin="0,10,0,0">
+                <TextBox x:Name="Phone" FontSize="20" Header="Số Điện Thoại" HorizontalAlignment="Center" Width="450"/>
             </RelativePanel>
-            <CalendarDatePicker Margin="0,20,0,0" FontSize="20" Header="Ngày Sinh"></CalendarDatePicker>
-            <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="0,20,0,0" Text="Gender" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <CalendarDatePicker Margin="0,10,0,0" FontSize="20" Header="Ngày Sinh"></CalendarDatePicker>
+            <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="0,20,0,0" Text="Giới Tính" TextWrapping="Wrap"/>
             <StackPanel Orientation="Horizontal">
                 <RadioButton Tag="0" Content="Nam" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <RadioButton Tag="1" Content="Nữ" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <RadioButton Tag="2" Content="Khác"  Checked="Select_Gender" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <RadioButton Tag="2" Content="Khác"  Checked="Select_Gender" IsChecked="True" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <RelativePanel HorizontalAlignment="Center">
-                <Button Background="White" FontWeight="Bold" Content="Lưu" Margin="-30,20,0,0" Click="Edit_Save"/>
-                <Button Background="White" FontWeight="Bold" Margin="100,20,0,0" Content="Hủy" Click="Cancle"/>
+            <RelativePanel HorizontalAlignment="Right" Margin="0,20,0,50">
+                <Border CornerRadius="5">
+                    <Button Background="#00c292" Foreground="White" FontWeight="Bold" Content="Lưu" Click="Edit_Save" Width="60" Height="35"/>
+                </Border>
+                <Border CornerRadius="5" Margin="90,0,0,0">
+                    <Button Background="#e46a76" Foreground="White" FontWeight="Bold" Content="Hủy" Click="Cancle" Width="60" Height="35"/>
+                </Border>
             </RelativePanel>
         </StackPanel>
     </ScrollViewer>

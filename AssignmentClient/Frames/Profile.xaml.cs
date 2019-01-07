@@ -29,7 +29,6 @@ namespace AssignmentClient.Frames
     /// </summary>
     public sealed partial class Profile : Page
     {
-        private static string GetProfile_Api = "https://backendcontroller.azurewebsites.net/_api/v1/Accounts/";
         public Profile()
         {
             this.InitializeComponent();
@@ -37,9 +36,9 @@ namespace AssignmentClient.Frames
         public ImageSource ProfilePicture { get; set; }
         private void Edit_Profile(object sender, TappedRoutedEventArgs e)
         {
-            //var rootFrame = Window.Current.Content as Frame;
-            //rootFrame.Navigate(typeof(Frames.EditProfile), null, new DrillInNavigationTransitionInfo());
-            
+            var rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(Frames.EditProfile), null, new DrillInNavigationTransitionInfo());
+
         }
 
         private async void GetProfile(object sender, RoutedEventArgs e)

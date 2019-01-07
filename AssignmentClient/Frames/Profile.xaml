@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="GetProfile">
 
     <ScrollViewer>
-        <StackPanel HorizontalAlignment="Center" Margin="0,90,0,0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Ellipse Width="120" Height="120" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                 <Ellipse.Fill>
                     <ImageBrush x:Name="AvatarApp"/>
@@ -17,22 +17,22 @@
             </Ellipse>
             <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="25" x:Name="FullName"/>
             <TextBlock HorizontalAlignment="Center" FontSize="22" x:Name="RollNumber"/>
-            <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="Email" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <RelativePanel  Margin="0,40,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="rollNumber" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="fullName" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="Phone" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="Birthday" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <RelativePanel Margin="0,40,0,0" HorizontalAlignment="Left">
+            <RelativePanel Margin="0,20,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="Gender" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
             <!--//<Button FontWeight="Bold" Content="Edit Profile" Click="Button_Click"/>-->
@@ -40,7 +40,7 @@
                 <TextBlock Foreground="Blue" FontWeight="Bold" Text="Edit Profile" Margin="25,0,0,0" VerticalAlignment="Stretch"/>
                 <SymbolIcon HorizontalAlignment="Left" Margin="0,-26,0,0" Symbol="Edit"/>
             </StackPanel>-->
-            <Button Foreground="White" HorizontalAlignment="Center" Content="Sửa thông tin" Margin="0,30,0,0" Tapped="Edit_Profile" Height="44" Width="148">
+            <Button Foreground="White" HorizontalAlignment="Center" Margin="0,20,0,0" Content="Sửa thông tin" Tapped="Edit_Profile" Height="44" Width="148">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5, 0">
                         <GradientStop Color="#2b5876" Offset="0"/>

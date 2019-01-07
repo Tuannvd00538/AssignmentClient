@@ -33,7 +33,7 @@
                     BackRequested="NavView_BackRequested" IsPaneOpen="True">
             
             <NavigationView.MenuItems>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,-0.333,0" VerticalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="-5,0,-0.333,0" VerticalAlignment="Stretch">
                     <Ellipse Width="30" Height="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                         <Ellipse.Fill>
                             <ImageBrush x:Name="AvatarApp"/>
@@ -43,8 +43,7 @@
                         <TextBlock Margin="10, 0, 0, 0" FontWeight="Bold" x:Name="FullName"/>
                         <TextBlock Margin="10, 0, 0, 0" x:Name="RollNumber"/>
                     </StackPanel>
-                </NavigationViewItem>
-                
+                </StackPanel>
                 <NavigationViewItemSeparator>
                     
                 </NavigationViewItemSeparator>
@@ -80,7 +79,7 @@
                 </DataTemplate>
             </NavigationView.HeaderTemplate>
 
-            <Frame x:Name="ContentFrame" Margin="20"/>
+            <Frame x:Name="ContentFrame" Margin="0,-70,0,0"/>
         </NavigationView>
 
        

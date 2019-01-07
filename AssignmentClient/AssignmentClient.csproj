@@ -131,9 +131,6 @@
     <Compile Include="Frames\EditProfile.xaml.cs">
       <DependentUpon>EditProfile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\MarkDialog.xaml.cs">
-      <DependentUpon>MarkDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Marks.xaml.cs">
       <DependentUpon>Marks.xaml</DependentUpon>
     </Compile>
@@ -220,10 +217,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\EditProfile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\MarkDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
