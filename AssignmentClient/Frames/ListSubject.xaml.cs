@@ -28,7 +28,7 @@ namespace AssignmentClient.Report
         public ListSubject()
         {
             this.InitializeComponent();
-            Subjects = SubjectsManager.GetSubject();
+            //Subjects = SubjectsManager.GetSubject();
 
         }
 

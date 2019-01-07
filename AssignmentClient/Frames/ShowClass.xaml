@@ -9,6 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    
     <Page.Resources>
         <DataTemplate x:Key="BookListDataTemplate" x:DataType="data:Classes">
             <StackPanel Orientation="Horizontal">
@@ -17,7 +18,9 @@
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
+        <CollectionViewSource x:Name="RecordingsCollection" Source="{x:Bind ViewModel.Recordings}"/>
     </Page.Resources>
+    
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -40,6 +43,8 @@
             </Border>
             <Border  Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1">
             </Border>
+            <Button x:Name="BackButton" Click="Back_Click" Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+            
             <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center"
                 Grid.Row="0">
                 <TextBlock FontSize="20" FontWeight="Bold">Danh sách lớp học</TextBlock>
@@ -48,33 +53,34 @@
             <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
                 <ListView x:Name="myListView" Margin="-30, -10, -30, 0" Padding="20, 0, 20, 0" ItemsSource="{x:Bind Classes}" 
                   ItemTemplate="{StaticResource BookListDataTemplate}" IsItemClickEnabled="True" ItemClick="ListSubject">
+                   
                 </ListView>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
-                Grid.Row="0" Grid.Column="1" x:Name="LoadSubjects" x:Load="False">
+                Grid.Row="0" Grid.Column="1" x:Name="LoadSubjects" x:Load="True">
                 <TextBlock FontSize="20" FontWeight="Bold">Môn Học</TextBlock>
             </StackPanel>
-            <ListView Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1" x:Name="LoadListSubject" x:Load="False" IsItemClickEnabled="True" ItemClick="LoadMark">
-                <StackPanel>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <ListView ItemsSource="{x:Bind Subjects}"  Grid.Row="0" Margin="10, 10, 0, 10">
-                            <TextBlock Text="{x:Bind Name}"/>
-                        </ListView>
-                    </Grid>
-                </StackPanel>
-            </ListView>
+           
 
-            <StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1"  x:Name="LoadListSubject" x:Load="False">
+                <ListView x:Name="recordingsListView" ItemsSource="{Binding Source={StaticResource RecordingsCollection}}" ItemClick="LoadMark" IsItemClickEnabled="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="data:Subjects">
+                            <StackPanel Orientation="Horizontal" Margin="15.5">
+                                <StackPanel>
+                                    <TextBlock Text="{x:Bind SubjectName}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
             </StackPanel>
-            <StackPanel x:Name="ShowMarks" x:Load="False" BorderBrush="Black" BorderThickness="1"  Grid.Row="0" Grid.Column="3">
+
+        <StackPanel>
+
+            </StackPanel>
+            <StackPanel x:Name="ShowMarks" x:Load="True" BorderBrush="Black" BorderThickness="1"  Grid.Row="0" Grid.Column="3">
                 <TextBlock Foreground="Red" FontSize="25" TextAlignment="Center" Text="Báo Cáo" Padding="0, 5, 0, 10"></TextBlock>
             </StackPanel>
             <StackPanel x:Name="Marks" x:Load="False" Grid.Row="1" Grid.Column="2" >
@@ -99,13 +105,13 @@
 
 
                     <StackPanel BorderBrush="Black" BorderThickness="1"  Grid.Row="1" Grid.Column="0" >
-                        <TextBlock TextAlignment="Center" Text="Thể Loại Thi" Padding="0, 5, 0, 5"/>
+                        <TextBlock TextAlignment="Center" Text="Thể Loại Thi" Padding="0, 15, 0, 15"/>
                     </StackPanel>
                     <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="1" >
-                        <TextBlock TextAlignment="Center" Padding="0, 5, 0, 5" Text="Hình Thức Thi"/>
+                        <TextBlock TextAlignment="Center" Padding="0, 15, 0, 15" Text="Hình Thức Thi"/>
                     </StackPanel>
                     <StackPanel BorderBrush="Black" BorderThickness="1"  Grid.Row="1" Grid.Column="2" >
-                        <TextBlock TextAlignment="Center" Padding="0, 5, 0, 5" Text="Điểm"></TextBlock>
+                        <TextBlock TextAlignment="Center" Padding="0, 15, 0, 15" Text="Điểm"></TextBlock>
                     </StackPanel>
 
                     <StackPanel BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.RowSpan="3">
