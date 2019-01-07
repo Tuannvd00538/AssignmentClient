@@ -52,7 +52,7 @@
                 
                 <NavigationViewItem Icon="Home" Content="Trang chủ" Tag="report" x:Name="Report"/>
                 <NavigationViewItem Icon="Contact" Content="Trang cá nhân" Tag="profile" x:Name="Profile"/>
-                <NavigationViewItem Icon="Permissions" Content="Đổi mật khẩu"/>
+                <NavigationViewItem Icon="Permissions" Content="Đổi mật khẩu" Tag="changePassword"/>
             </NavigationView.MenuItems>
             <NavigationView.PaneFooter>
                 <NavigationViewItem Icon="Forward" Content="Logout" Tag="logout" x:Name="Logout" Foreground="Red" Tapped="logoutClick">

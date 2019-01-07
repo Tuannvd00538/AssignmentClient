@@ -51,7 +51,8 @@ namespace AssignmentClient
         {
             ("report", typeof(Dashboard)),
             ("profile", typeof(Profile)),
-            ("redirect", typeof(Profile))
+            ("redirect", typeof(Profile)),
+            ("changePassword", typeof(ChangePassword))
         };
 
         private async void NavView_Loaded(object sender, RoutedEventArgs e)
