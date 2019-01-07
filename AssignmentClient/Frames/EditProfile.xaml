@@ -20,7 +20,7 @@
                     <Button Content="Đổi ảnh đại diện" Background="#03a9f3" Foreground="White" Click="Select_Photo" />
                 </Border>
             </RelativePanel>
-            <TextBlock FontSize="20" Text="Email:" />
+            <TextBlock FontSize="20" Text="Email"/>
             <RelativePanel>
                 <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1">
                     <TextBox x:Name="Email" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
@@ -28,13 +28,21 @@
             </RelativePanel>
             <TextBlock Margin="0,10,0,0" FontSize="20" Text="Mã Sinh Viên" />
             <RelativePanel>
-                <TextBox x:Name="RollNumber"  FontSize="20" HorizontalAlignment="Center" Width="450"/>
+                <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1">
+                    <TextBox x:Name="RollNumber" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
+                </Border>
             </RelativePanel>
-            <RelativePanel Margin="0,10,0,0" HorizontalAlignment="Center">
-                <TextBox x:Name="FullName"  FontSize="20" Header="Họ Và Tên" HorizontalAlignment="Center" Width="450"/>
+            <TextBlock Margin="0,10,0,0" FontSize="20" Text="Họ Và Tên" />
+            <RelativePanel HorizontalAlignment="Center">
+                <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1">
+                    <TextBox x:Name="FullName" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
+                </Border>
             </RelativePanel>
-            <RelativePanel Margin="0,10,0,0">
-                <TextBox x:Name="Phone" FontSize="20" Header="Số Điện Thoại" HorizontalAlignment="Center" Width="450"/>
+            <TextBlock Margin="0,10,0,0" FontSize="20" Text="Số Điện Thoại"/>
+            <RelativePanel>
+                <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1">
+                    <TextBox x:Name="Phone" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
+                </Border>
             </RelativePanel>
             <CalendarDatePicker Margin="0,10,0,0" FontSize="20" Header="Ngày Sinh"></CalendarDatePicker>
             <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="0,20,0,0" Text="Giới Tính" TextWrapping="Wrap"/>
@@ -44,7 +52,7 @@
                 <RadioButton Tag="2" Content="Khác"  Checked="Select_Gender" IsChecked="True" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <RelativePanel HorizontalAlignment="Right" Margin="0,20,0,50">
+            <RelativePanel HorizontalAlignment="Center" Margin="0,20,0,50">
                 <Border CornerRadius="5">
                     <Button Background="#00c292" Foreground="White" FontWeight="Bold" Content="Lưu" Click="Edit_Save" Width="60" Height="35"/>
                 </Border>
