@@ -11,7 +11,7 @@
     <AssemblyName>AssignmentClient</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17763.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -163,6 +163,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\12579ed6a3d77a5.jpg" />
+    <Content Include="Assets\42936478_585066935243529_5642304180342226944_o.jpg" />
+    <Content Include="Assets\45533298-pastel-multi-color-gradient-vector-background-simple-form-and-blend-of-color-spaces-as-contemporary-.jpg" />
+    <Content Include="Assets\Colorful-Rectangular-Form-Background-1000x750.jpg" />
     <Content Include="Assets\img_210318.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />

@@ -29,8 +29,7 @@ namespace AssignmentClient
         private static string API_LOGIN = "https://backendcontroller.azurewebsites.net/_api/v1/Authentication/Login";
         private async void Login_Button(object sender, RoutedEventArgs e)
         {
-            
-            if (this.Email.Text != "" && this.Password.Password != "")
+            if (Login_Validate())
             {
                 Dictionary<String, String> LoginInfo = new Dictionary<string, string>
                 {
@@ -43,9 +42,11 @@ namespace AssignmentClient
                 StringContent content = new StringContent(JsonConvert.SerializeObject(LoginInfo), System.Text.Encoding.UTF8, "application/json");
                 var response = httpClient.PostAsync(API_LOGIN, content).Result;
                 var responseContent = await response.Content.ReadAsStringAsync();
-
+                
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
+
+                    
                     // save file...
                     Debug.WriteLine("Debug Success:" + responseContent);
                     // Doc token
@@ -61,6 +62,7 @@ namespace AssignmentClient
                     var response2 = new StringContent(JsonConvert.SerializeObject(LoginInfo), System.Text.Encoding.UTF8, "application/json");
                     var content2 = await httpClient.PostAsync(API_LOGIN, response2).Result.Content.ReadAsStringAsync();
                     Debug.WriteLine(content2);
+                    this.QuayQuay.IsActive = true;
                     this.Frame.Navigate(typeof(HomePage));
                 }
                 else
@@ -78,25 +80,29 @@ namespace AssignmentClient
             }
             else
             {
-                Login_Validate();
             }
             
 
         }
-        private void Login_Validate()
+        private bool Login_Validate()
         {
+            bool result;
             if (this.Email.Text == "")
             {
+                result = false;
                 this.error_UserName.Text = "Bạn chưa nhập email!";
             }
             else
             {
+                result = true;
                 this.error_UserName.Visibility = Visibility.Collapsed;
             }
             if (this.Password.Password == "")
             {
+                result = false;
                 this.error_Password.Text = "Bạn chưa nhập mật khẩu!";
             }
+            return result;
         }
         private async void Page_loaded(object sender, RoutedEventArgs e)
         {
@@ -114,7 +120,6 @@ namespace AssignmentClient
             }
             catch (FileNotFoundException)
             {
-                Debug.WriteLine("login...");
             }
         }
     }
