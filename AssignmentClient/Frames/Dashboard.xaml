@@ -43,7 +43,7 @@
             </Border>
             <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center"
                 Grid.Row="0">
-                <TextBlock FontSize="20" FontWeight="Bold">List Class</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">Danh sách lớp</TextBlock>
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
@@ -59,7 +59,7 @@
             <StackPanel x:Name="Notification1" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Grid.Row="0" Grid.Column="2" Visibility="Visible">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
-               FontSize="20" FontWeight="Bold">Notification</TextBlock>
+               FontSize="20" FontWeight="Bold">Thông báo mới</TextBlock>
             </StackPanel>
             <StackPanel x:Name="Notification2" Grid.Row="1" Grid.Column="2" Visibility="Visible" >
                 <Grid BorderBrush="Black" BorderThickness="1, 0, 0, 0 ">
