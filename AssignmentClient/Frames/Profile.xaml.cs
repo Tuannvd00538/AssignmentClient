@@ -59,10 +59,10 @@ namespace AssignmentClient.Frames
             this.Birthday.Text = "Ngày Sinh: " + profile.BirthDay;
             var gender = (int)profile.Gender;
             var gioitinh = "";
-            if (gender == 0)
+            if (gender == 1)
             {
                 gioitinh = "Nam";
-            } else if (gender == 1)
+            } else if (gender == 0)
             {
                 gioitinh = "Nữ";
             } else if (gender == 2)

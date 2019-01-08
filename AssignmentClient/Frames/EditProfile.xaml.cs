@@ -166,8 +166,8 @@ namespace AssignmentClient.Frames
             fileOpenPicker.FileTypeFilter.Add(".jpeg");
             fileOpenPicker.FileTypeFilter.Add(".jpg");
             fileOpenPicker.FileTypeFilter.Add(".bmp");
-
             StorageFile fileLocal = await fileOpenPicker.PickSingleFileAsync();
+            this.QuayQuay.IsActive = true;
             if (fileLocal != null)
             {
                 IRandomAccessStream fileStream =
@@ -198,6 +198,7 @@ namespace AssignmentClient.Frames
 
                 Avatar.ImageSource = bitmapImage;
                 AvatarUrl.Text = objImgur.SelectToken("data").SelectToken("link").ToString();
+                this.QuayQuay.IsActive = false;
             }
 
         }
