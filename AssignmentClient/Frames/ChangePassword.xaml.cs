@@ -34,42 +34,76 @@ namespace AssignmentClient.Frames
             this.InitializeComponent();
         }
 
-        private void Validate()
+        private bool Validate()
         {
+            bool result;
             if (this.Old_Password.Password.ToString() == "")
             {
                 this.error_OldPassword.Text = "Vui Lòng Điền Thông Tin!";
+                result = false;
             }
             else
             {
                 this.error_OldPassword.Visibility = Visibility.Collapsed;
+                result = true;
             }
             if (this.New_Password.Password.ToString() == "")
             {
                 this.error_NewPassword.Text = "Vui Lòng Điền Thông Tin!";
+                result = false;
             }
             else
             {
                 this.error_NewPassword.Visibility = Visibility.Collapsed;
+                result = true;
             }
             if (this.Re_Password.Password.ToString() == "")
             {
                 this.error_RePassword.Text = "Bạn chưa nhập lại mật khẩu!";
+                result = false;
             }
             else if (this.New_Password.Password.ToString() != this.Re_Password.Password.ToString())
             {
                 this.error_RePassword.Text = "Mật khẩu không khớp!";
+                result = false;
             }
             else
             {
                 this.error_RePassword.Visibility = Visibility.Collapsed;
+                result = true;
             }
+            return result;
         }
         private void CommandInvokedHandler(IUICommand command)
         {
 
         }
         private async void SaveClick(object sender, RoutedEventArgs e)
+        {
+            if (Validate())
+            {
+                // Create the message dialog and set its content
+                var messageDialog = new MessageDialog("Bạn có chắc chắn muốn dùng mật khẩu này?");
+
+                // Add commands and set their callbacks; both buttons use the same callback function instead of inline event handlers
+                messageDialog.Commands.Add(new UICommand(
+                    "Có",
+                    new UICommandInvokedHandler(ChangePasswords)));
+                messageDialog.Commands.Add(new UICommand(
+                    "Không",
+                    new UICommandInvokedHandler(this.CommandInvokedHandler)));
+
+                // Set the command that will be invoked by default
+                messageDialog.DefaultCommandIndex = 0;
+
+                // Set the command to be invoked when escape is pressed
+                messageDialog.CancelCommandIndex = 1;
+                // Show the message dialog
+                await messageDialog.ShowAsync();
+            }
+        }
+        
+        private async void ChangePasswords(IUICommand command)
         {
             if (this.Old_Password.Password.ToString() != "" && this.New_Password.Password.ToString() != "" && this.Re_Password.Password.ToString() != "")
             {
@@ -113,17 +147,15 @@ namespace AssignmentClient.Frames
                 else
                 {
                     Debug.WriteLine("Debug Error:" + responseContent);
-                    this.error_RePassword.Text = "Password is incorrect";
+                    this.error_RePassword.Text = "Mật khẩu không chính xác!";
                     this.error_RePassword.Visibility = Visibility.Visible;
                 }
 
             }
             else
             {
-                Validate();
             }
-            
-            
         }
+
     }
 }

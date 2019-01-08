@@ -114,7 +114,6 @@ namespace AssignmentClient.Frames
                 var response = (HttpWebResponse)request.GetResponse();
                 var url = new StreamReader(response.GetResponseStream());
                 JObject objImgur = JObject.Parse(url.ReadToEnd());
-
                 Avatar.ImageSource = bitmapImage;
                 AvatarUrl.Text = objImgur.SelectToken("data").SelectToken("link").ToString();
             }
@@ -130,6 +129,11 @@ namespace AssignmentClient.Frames
         {
             this.Frame.Navigate(typeof(HomePage));
             
+        }
+
+        private void Change_Birthday(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        {
+            //this.currentMember.birthday = sender.Date.Value.ToString("yyyy-MM-dd");
         }
     }
 
