@@ -74,19 +74,19 @@
                     <Rectangle Grid.Row="1" Fill="Red"/>
                     <Rectangle Grid.Row="2" Fill="BurlyWood"/>
                     <Rectangle Grid.Row="3" Fill="GreenYellow"/>
-                    <StackPanel Grid.Row="0" Padding="10, 10, 2, 10">
+                    <StackPanel Tapped="Mess" Grid.Row="0" Padding="10, 10, 2, 10">
                         <TextBlock Text="Đã có điểm môn ASP.NET Core MVC lớp T1708E"></TextBlock>
                     </StackPanel>
-                    <StackPanel Grid.Row="1" Padding="10, 10, 2, 10">
+                    <StackPanel Tapped="Mess" Grid.Row="1" Padding="10, 10, 2, 10">
                         <TextBlock>Đã có điểm môn ASP.NET Core MVC lớp T1708E</TextBlock>
                     </StackPanel>
-                    <StackPanel Grid.Row="2" Padding="10, 10, 2, 10">
+                    <StackPanel Tapped="Mess" Grid.Row="2" Padding="10, 10, 2, 10">
                         <TextBlock>Đã có điểm môn HTML/CSS/JS lớp T1708E</TextBlock>
                     </StackPanel>
-                    <StackPanel Grid.Row="3" Padding="10, 10, 2, 10">
+                    <StackPanel Tapped="Mess" Grid.Row="3" Padding="10, 10, 2, 10">
                         <TextBlock>Thông báo lịch đăng ký thi lại tháng 12 ngày 30/12/2018</TextBlock>
                     </StackPanel>
-                    <StackPanel Grid.Row="4" Padding="10, 10, 2, 10">
+                    <StackPanel Tapped="Mess" Grid.Row="4" Padding="10, 10, 2, 10">
                         <TextBlock>Thông báo nghỉ học ngày 29/12/2018</TextBlock>
                     </StackPanel>
                 </Grid>
