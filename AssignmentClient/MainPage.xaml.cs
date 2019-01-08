@@ -68,7 +68,7 @@ namespace AssignmentClient
                 else
                 {
                     Debug.WriteLine("Debug Error:" + responseContent);
-                    this.error_Password.Text = "username or password is incorrect";
+                    this.error_Password.Text = "Email hoặc password không chính xác";
                     this.error_Password.Visibility = Visibility.Visible;
                     // //Xu ly loi.
                     //ErrorResponse errorObject = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);

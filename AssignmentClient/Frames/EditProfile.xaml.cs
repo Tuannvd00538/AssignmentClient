@@ -195,7 +195,6 @@ namespace AssignmentClient.Frames
                 var response = (HttpWebResponse)request.GetResponse();
                 var url = new StreamReader(response.GetResponseStream());
                 JObject objImgur = JObject.Parse(url.ReadToEnd());
-
                 Avatar.ImageSource = bitmapImage;
                 AvatarUrl.Text = objImgur.SelectToken("data").SelectToken("link").ToString();
                 this.QuayQuay.IsActive = false;

@@ -34,7 +34,7 @@
             
             <NavigationView.MenuItems>
                 <NavigationViewItem Tag="redirect">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,-0.333,0" VerticalAlignment="Stretch" Tag="redirect">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="-12,0,-0.333,0" VerticalAlignment="Stretch" Tag="redirect">
                         <Ellipse Width="30" Height="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                             <Ellipse.Fill>
                                 <ImageBrush x:Name="AvatarApp"/>
