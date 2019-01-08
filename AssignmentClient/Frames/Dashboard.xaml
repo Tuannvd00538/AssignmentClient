@@ -7,13 +7,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    Loaded="Page_Loaded"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
         <DataTemplate x:Key="BookListDataTemplate" x:DataType="data:Classes">
             <StackPanel Orientation="Horizontal">
                 <StackPanel Margin="20,15,10,15" HorizontalAlignment="Left">
-                    <TextBlock Text="{x:Bind ClassName}"  FontSize="16" />
+                    <TextBlock Text="{x:Bind Name}"  FontSize="16" />
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
@@ -46,7 +47,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
-                <ListView x:Name="myListView" Margin="-30, -10, -30, 0" Padding="20, 0, 20, 0" ItemsSource="{x:Bind Classes}" 
+                <ListView x:Name="myListView" Margin="-30, -10, -30, 0" Padding="20, 0, 20, 0" ItemsSource="{x:Bind ObservableClasses}" 
                   ItemTemplate="{StaticResource BookListDataTemplate}" IsItemClickEnabled="True" ItemClick="ShowClass">
                 </ListView>
             </StackPanel>

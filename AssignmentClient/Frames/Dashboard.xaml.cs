@@ -1,21 +1,14 @@
 ﻿using AssignmentClient.Entity;
-using AssignmentClient.Report;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.ViewManagement;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Net.Http;
+using Windows.Data.Json;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,14 +19,14 @@ namespace AssignmentClient.Frames
     /// </summary>
     public sealed partial class Dashboard : Page
     {
-
-
-        private List<Classes> Classes;
+        
+        private ObservableCollection<Classes> ObservableClasses = new ObservableCollection<Classes>();
 
         public Dashboard()
         {
+
             this.InitializeComponent();
-            Classes = ClassManager.GetClasses();
+
         }
 
         private void ShowClass(object sender, ItemClickEventArgs e)
@@ -41,6 +34,32 @@ namespace AssignmentClient.Frames
             Frame rootFrame = Window.Current.Content as Frame;
 
             rootFrame.Navigate(typeof(ShowClass));
+        }
+
+        private static string GetListClass = "https://backendcontroller.azurewebsites.net/_api/v1/HandleClientAPI/Class/";
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            HttpClient httpClient = new HttpClient();
+            StorageFile file = await ApplicationData.Current.LocalFolder.GetFileAsync("token.txt");
+            String credential = await FileIO.ReadTextAsync(file);
+
+            JsonObject data = JsonObject.Parse(credential);
+
+            HttpClient client = new HttpClient();
+            var response = httpClient.GetAsync(GetListClass + data.GetNamedValue("ownerId"));
+            var res = await response.Result.Content.ReadAsStringAsync();
+
+            List<Classes> classes = JsonConvert.DeserializeObject<List<Classes>>(res);
+
+
+
+            foreach (var item in classes)
+            {
+                ObservableClasses.Add(item);
+                
+            }
         }
     }
 }

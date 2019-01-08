@@ -1,11 +1,16 @@
 ﻿using AssignmentClient.Entity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Data.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -31,8 +36,6 @@ namespace AssignmentClient.Frames
         {
             this.InitializeComponent();
             this.ViewModel = new SubjectViewModel();
-
-            Classes = ClassManager.GetClasses();
             //Subjects = SubjectsManager.GetSubject();
 
             KeyboardAccelerator GoBack = new KeyboardAccelerator();
@@ -84,6 +87,33 @@ namespace AssignmentClient.Frames
         {
             this.FindName("LoadListSubject");
             this.FindName("LoadSubjects");
+        }
+
+        private static string GetListClass = "https://backendcontroller.azurewebsites.net/_api/v1/HandleClientAPI/Class/";
+        private ObservableCollection<Classes> ObservableClasses = new ObservableCollection<Classes>();
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            HttpClient httpClient = new HttpClient();
+            StorageFile file = await ApplicationData.Current.LocalFolder.GetFileAsync("token.txt");
+            String credential = await FileIO.ReadTextAsync(file);
+
+            JsonObject data = JsonObject.Parse(credential);
+
+            HttpClient client = new HttpClient();
+            var response = httpClient.GetAsync(GetListClass + data.GetNamedValue("ownerId"));
+            var res = await response.Result.Content.ReadAsStringAsync();
+
+            List<Classes> classes = JsonConvert.DeserializeObject<List<Classes>>(res);
+
+
+
+            foreach (var item in classes)
+            {
+                ObservableClasses.Add(item);
+
+            }
         }
     }
 }
