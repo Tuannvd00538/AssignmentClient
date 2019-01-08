@@ -41,36 +41,43 @@ namespace AssignmentClient.Frames
             {
                 result = false;
                 this.error_OldPassword.Text = "Vui Lòng Điền Thông Tin!";
+                result = false;
             }
             else
             {
                 result = true;
                 this.error_OldPassword.Visibility = Visibility.Collapsed;
+                result = true;
             }
             if (this.New_Password.Password.ToString() == "")
             {
                 result = false;
                 this.error_NewPassword.Text = "Vui Lòng Điền Thông Tin!";
+                result = false;
             }
             else
             {
                 result = true;
                 this.error_NewPassword.Visibility = Visibility.Collapsed;
+                result = true;
             }
             if (this.Re_Password.Password.ToString() == "")
             {
                 result = false;
                 this.error_RePassword.Text = "Bạn chưa nhập lại mật khẩu!";
+                result = false;
             }
             else if (this.New_Password.Password.ToString() != this.Re_Password.Password.ToString())
             {
                 result = false;
                 this.error_RePassword.Text = "Mật khẩu không khớp!";
+                result = false;
             }
             else
             {
                 result = true;
                 this.error_RePassword.Visibility = Visibility.Collapsed;
+                result = true;
             }
             return result;
         }
@@ -152,5 +159,6 @@ namespace AssignmentClient.Frames
                 this.error_RePassword.Visibility = Visibility.Visible;
             }
         }
+
     }
 }
