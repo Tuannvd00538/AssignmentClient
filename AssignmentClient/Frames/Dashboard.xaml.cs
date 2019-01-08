@@ -29,24 +29,18 @@ namespace AssignmentClient.Frames
 
 
         private List<Classes> Classes;
-        private List<Subjects> Subjects;
 
         public Dashboard()
         {
             this.InitializeComponent();
             Classes = ClassManager.GetClasses();
-
-            Subjects = SubjectsManager.GetSubject();
         }
 
-        private void ListSubject(object sender, ItemClickEventArgs e)
-        { 
+        private void ShowClass(object sender, ItemClickEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
 
+            rootFrame.Navigate(typeof(ShowClass));
         }
-
-        //private void ClinkLinks(object sender, RoutedEventArgs e)
-        //{
-
-        //}
     }
 }

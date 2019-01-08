@@ -26,7 +26,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel BorderBrush="Black" BorderThickness="1"  Grid.Row="0" Grid.ColumnSpan="3" Padding="0, 17, 0, 0">
+        <StackPanel BorderBrush="Black" BorderThickness="1"  Grid.Row="0" Grid.ColumnSpan="3" Padding="0, 30, 0, 0">
             <TextBlock Foreground="Red" FontSize="25" TextAlignment="Center" Text="Báo Cáo"></TextBlock>
         </StackPanel>
         <StackPanel BorderBrush="Black" BorderThickness="1"  Grid.Row="1" Grid.Column="0" >

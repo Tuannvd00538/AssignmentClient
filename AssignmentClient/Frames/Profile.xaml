@@ -35,19 +35,16 @@
             <RelativePanel Margin="0,30,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="Gender" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </RelativePanel>
-            <!--//<Button FontWeight="Bold" Content="Edit Profile" Click="Button_Click"/>-->
-            <!--<StackPanel Margin="0,40,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="Edit_Profile">
-                <TextBlock Foreground="Blue" FontWeight="Bold" Text="Edit Profile" Margin="25,0,0,0" VerticalAlignment="Stretch"/>
-                <SymbolIcon HorizontalAlignment="Left" Margin="0,-26,0,0" Symbol="Edit"/>
-            </StackPanel>-->
-            <Button Foreground="White" HorizontalAlignment="Center" Margin="0,20,0,0" Content="Sửa thông tin" Tapped="Edit_Profile" Height="44" Width="148">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5, 0">
-                        <GradientStop Color="#2b5876" Offset="0"/>
-                        <GradientStop Color="#4e4376" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
+            <Border CornerRadius="10" Margin="0,20,0,0">
+                <Button Foreground="White" HorizontalAlignment="Center" Content="Sửa thông tin" Tapped="Edit_Profile" Height="44" Width="148">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5, 0">
+                            <GradientStop Color="#2b5876" Offset="0"/>
+                            <GradientStop Color="#4e4376" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </Page>
