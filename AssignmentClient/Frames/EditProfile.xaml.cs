@@ -15,6 +15,7 @@ using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,7 +34,9 @@ namespace AssignmentClient.Frames
     /// </summary>
     public sealed partial class EditProfile : Page
     {
-        private static string GetProfile_Api = "https://backendcontroller.azurewebsites.net/_api/v1/Accounts/";
+        private static string EditProfile_Api = "https://backendcontroller.azurewebsites.net/_api/v1/Accounts/";
+
+        private int gender;
         public EditProfile()
         {
             this.InitializeComponent();
@@ -53,22 +56,100 @@ namespace AssignmentClient.Frames
 
             dynamic profile = JsonConvert.DeserializeObject(credential);
 
-            FullName.Text = profile.FirstName + " " + profile.LastName;
+            FirstName.Text = profile.FirstName;
+            LastName.Text = profile.LastName;
             RollNumber.Text = profile.RollNumber.ToString().ToUpper();
             Email.Text =  profile.Email;
             RollNumber.Text =  profile.RollNumber.ToString().ToUpper();
-            FullName.Text =  profile.FirstName + " " + profile.LastName;
             Phone.Text = profile.Phone;
             BirthDay.Date = profile.BirthDay;
             Avatar.ImageSource = new BitmapImage(new Uri(profile.Avatar.ToString()));
             AvatarUrl.Text = profile.Avatar;
         }
 
-        private void Edit_Save(object sender, RoutedEventArgs e)
+        private void FrameBack(IUICommand command)
         {
-            var rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(Frames.Profile), null, new DrillInNavigationTransitionInfo());
+            On_BackRequested();
+        }
+        private bool On_BackRequested()
+        {
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+                return true;
+            }
+            return false;
+        }
 
+        private void BackInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            On_BackRequested();
+            args.Handled = true;
+        }
+
+        private async void Edit_Save(object sender, RoutedEventArgs e)
+        {
+            if (validate())
+            {
+                Dictionary<String, String> Edit_Info = new Dictionary<string, string>
+                {
+                    {"FirstName", this.FirstName.Text},
+                    {"LastName", this.LastName.Text},
+                    {"Phone", this.Phone.Text},
+                    {"Birthday", this.BirthDay.Date.ToString()},
+                    {"Avatar", this.AvatarUrl.Text},
+                    {"Gender", gender.ToString()},
+                };
+
+                StorageFolder folder = ApplicationData.Current.LocalFolder;
+                StorageFile file = await ApplicationData.Current.LocalFolder.GetFileAsync("token.txt");
+                String credential = await FileIO.ReadTextAsync(file);
+
+                JsonObject data = JsonObject.Parse(credential);
+
+                HttpClient httpClient = new HttpClient();
+                StringContent content = new StringContent(JsonConvert.SerializeObject(Edit_Info), System.Text.Encoding.UTF8, "application/json");
+                var response = httpClient.PutAsync(EditProfile_Api + data.GetNamedValue("ownerId"), content).Result;
+                var responseContent = await response.Content.ReadAsStringAsync();
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    this.QuayQuay.IsActive = true;
+                    StorageFile info = await ApplicationData.Current.LocalFolder.GetFileAsync("info.txt");
+                    await FileIO.WriteTextAsync(info, responseContent);
+
+
+                    // Create the message dialog and set its content
+                    var messageDialog = new MessageDialog("Sửa thông tin thành công!");
+
+                    // Add commands and set their callbacks; both buttons use the same callback function instead of inline event handlers
+                    messageDialog.Commands.Add(new UICommand(
+                        "OK",
+                        new UICommandInvokedHandler(FrameBack)));
+
+                    // Set the command that will be invoked by default
+                    messageDialog.DefaultCommandIndex = 0;
+
+                    // Set the command to be invoked when escape is pressed
+                    messageDialog.CancelCommandIndex = 1;
+
+                    // Show the message dialog
+                    await messageDialog.ShowAsync();
+                    //this.Frame.Navigate(typeof(MainPage));
+                }
+                else
+                {
+                    Debug.WriteLine("Debug Error:" + responseContent);
+                    //this.error_Password.Text = "username or password is incorrect";
+                    // //Xu ly loi.
+                    //ErrorResponse errorObject = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
+                    // if (errorObject != null)
+                    // {
+
+                    // }
+                }
+                
+            }
+            
         }
 
         private async void Select_Photo(object sender, RoutedEventArgs e)
@@ -123,6 +204,7 @@ namespace AssignmentClient.Frames
         private void Select_Gender(object sender, RoutedEventArgs e)
         {
             RadioButton radioGender = sender as RadioButton;
+            gender = Int32.Parse(radioGender.Tag.ToString());
         }
 
         private void Cancle(object sender, RoutedEventArgs e)
@@ -131,9 +213,20 @@ namespace AssignmentClient.Frames
             
         }
 
-        private void Change_Birthday(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        private bool validate()
         {
-            //this.currentMember.birthday = sender.Date.Value.ToString("yyyy-MM-dd");
+            bool result;
+            if (this.FirstName.Text == "" && this.Phone.Text == "" && this.LastName.Text == "")
+            {
+                result = false;
+                this.error_Input.Text = "Vui Lòng Điền Đầy Đủ Thông Tin!";
+            }
+            else
+            {
+                result = true;
+                this.error_Input.Visibility = Visibility.Collapsed;
+            }
+            return result;
         }
     }
 

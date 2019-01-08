@@ -32,10 +32,16 @@
                     <TextBox x:Name="RollNumber" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
                 </Border>
             </RelativePanel>
-            <TextBlock Margin="0,10,0,0" FontSize="20" Text="Họ Và Tên" />
+            <TextBlock Margin="0,10,0,0" FontSize="20" Text="Họ" />
             <RelativePanel HorizontalAlignment="Center">
                 <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1">
-                    <TextBox x:Name="FullName" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
+                    <TextBox x:Name="FirstName" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
+                </Border>
+            </RelativePanel>
+            <TextBlock Margin="0,10,0,0" FontSize="20" Text="Tên"/>
+            <RelativePanel HorizontalAlignment="Center">
+                <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1">
+                    <TextBox x:Name="LastName" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
                 </Border>
             </RelativePanel>
             <TextBlock Margin="0,10,0,0" FontSize="20" Text="Số Điện Thoại"/>
@@ -50,8 +56,8 @@
             </Border>
             <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="0,20,0,0" Text="Giới Tính" TextWrapping="Wrap"/>
             <StackPanel Orientation="Horizontal">
-                <RadioButton Tag="0" Content="Nam" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <RadioButton Tag="1" Content="Nữ" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <RadioButton Tag="1" Content="Nam" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <RadioButton Tag="0" Content="Nữ" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <RadioButton Tag="2" Content="Khác"  Checked="Select_Gender" IsChecked="True" HorizontalAlignment="Center"/>
             </StackPanel>
             <TextBlock FontSize="20" Text="Avatar"/>
@@ -60,7 +66,8 @@
                     <TextBox x:Name="AvatarUrl" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
                 </Border>
             </RelativePanel>
-            <RelativePanel HorizontalAlignment="Center" Margin="0,20,0,50">
+            <TextBlock RelativePanel.Below="AvatarUrl" x:Name="error_Input" Foreground="Red"/>
+            <RelativePanel HorizontalAlignment="Center" Margin="0,20,0,20">
                 <Border CornerRadius="5">
                     <Button Background="#00c292" Foreground="White" FontWeight="Bold" Content="Lưu" Click="Edit_Save" Width="60" Height="35"/>
                 </Border>
@@ -68,6 +75,7 @@
                     <Button Background="#e46a76" Foreground="White" FontWeight="Bold" Content="Hủy" Click="Cancle" Width="60" Height="35"/>
                 </Border>
             </RelativePanel>
+            <ProgressRing Width="40" Height="40" x:Name="QuayQuay" IsActive="False"></ProgressRing>
         </StackPanel>
     </ScrollViewer>
 </Page>
