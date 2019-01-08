@@ -44,7 +44,10 @@
                     <TextBox x:Name="Phone" Background="White" BorderThickness="0" FontSize="20" HorizontalAlignment="Center" Width="450"/>
                 </Border>
             </RelativePanel>
-            <CalendarDatePicker Margin="0,10,0,0" FontSize="20" Header="Ngày Sinh"></CalendarDatePicker>
+            <CalendarDatePicker Margin="0,10,0,0" FontSize="20" Header="Ngày Sinh" DateChanged="Change_Birthday"></CalendarDatePicker>
+            <RelativePanel>
+                <TextBox x:Name="AvatarAddr" Visibility="Collapsed" FontSize="20" HorizontalAlignment="Center" Width="450"/>
+            </RelativePanel>
             <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="0,20,0,0" Text="Giới Tính" TextWrapping="Wrap"/>
             <StackPanel Orientation="Horizontal">
                 <RadioButton Tag="0" Content="Nam" Checked="Select_Gender" HorizontalAlignment="Center" VerticalAlignment="Top"/>

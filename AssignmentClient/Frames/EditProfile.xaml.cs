@@ -59,6 +59,7 @@ namespace AssignmentClient.Frames
             this.RollNumber.Text =  profile.RollNumber.ToString().ToUpper();
             this.FullName.Text =  profile.FirstName + " " + profile.LastName;
             this.Phone.Text = profile.Phone;
+            this.AvatarAddr.Text = profile.Avatar.ToString();
             this.Avatar.ImageSource = new BitmapImage(new Uri(profile.Avatar.ToString()));
         }
 
@@ -117,7 +118,7 @@ namespace AssignmentClient.Frames
 
                 Debug.WriteLine(objImgur);
 
-                //account.avatar = objImgur.SelectToken("data").SelectToken("link").ToString();
+                this.AvatarAddr.Text = objImgur.SelectToken("data").SelectToken("link").ToString();
 
                 Avatar.ImageSource = bitmapImage;
             }
@@ -133,6 +134,11 @@ namespace AssignmentClient.Frames
         {
             this.Frame.Navigate(typeof(HomePage));
             
+        }
+
+        private void Change_Birthday(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        {
+            //this.currentMember.birthday = sender.Date.Value.ToString("yyyy-MM-dd");
         }
     }
 
